@@ -85,6 +85,9 @@ a {
   &__contacts {
     display: flex;
     justify-content: flex-end;
+    @include md {
+      display: none;
+    }
   }
   &__links {
     display: flex;
@@ -103,6 +106,9 @@ a {
   }
   &__icon {
     margin-right: 9px;
+  }
+  @include md {
+    margin-right: 20px;
   }
 }
 
