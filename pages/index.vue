@@ -3,6 +3,11 @@
     <Hero />
     <About />
     <Services />
+    <Price />
+    <section class="section section_flex">
+      <Promo />
+      <Footer />
+    </section>
   </div>
 </template>
 

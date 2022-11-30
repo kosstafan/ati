@@ -12,6 +12,8 @@
                     </div>
                     <div class="header__links">
                         <a v-for="link in links" :key="link.name" :href="link.to" class="nav-link">{{link.name}}</a>
+                        <div class="burger"><IconBurger /></div>
+                        
                     </div> 
                 </div>
             </div>

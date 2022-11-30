@@ -29,7 +29,7 @@
                 </main>
             </div>
         </div>
-        <div class="scroll-btn"><IconArrow /></div>
+        <div class="scroll-btn" @click="scrollToBottom"><IconArrow /></div>
     </section>
 </template>
 <script>
@@ -37,6 +37,15 @@ export default {
     name: "Hero",
     data: () => ({
         feachers: ['по всей России','Белоруссия','Грузия','Казахстан','Китай','Таджикистан','Узбекистан']
-    })
+    }),
+    methods: {
+    scrollToBottom() {
+      window.scrollTo({
+        top: document.querySelector('.hero').offsetHeight,
+        behavior: "smooth",
+      });
+    },
+  },
+
 }
 </script>

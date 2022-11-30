@@ -45,7 +45,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["~/assets/style/core.scss"],
 
-  plugins: ["~/plugins/requestApi.js", "~/plugins/directives.js"],
+  plugins: ["~/plugins/requestApi.js", "~/plugins/directives.js", { src: '~/plugins/ymapPlugin.js',  mode: 'client'}],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
