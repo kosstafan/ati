@@ -1,0 +1,10 @@
+=font-face($family, $path, $svg, $weight: normal, $style: normal)
+  @font-face
+    font-family: $family
+    src: url('#{$path}.ttf') format('truetype')
+    font-weight: $weight
+    font-style: $style
+
++font-face('Poppins', '~/assets/fonts/Poppins-Regular', 'Poppins-Regular', 400)
++font-face('Poppins', '~/assets/fonts/Poppins-Bold', 'Poppins-Bold', 500)
++font-face('Poppins', '~/assets/fonts/Poppins-Black', 'Poppins-Black', 600, 'bold')

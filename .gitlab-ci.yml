@@ -1,0 +1,69 @@
+stages:
+  - build
+  - release
+  - deploy
+
+variables:
+  CONTAINER_NAME_RC: promotv_rc
+  CONTAINER_NAME_PROD: promotv_prod
+  CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+
+build:
+  stage: build
+  image: docker:18.09
+  services:
+    - docker:18.09-dind
+  before_script:
+    - apk add curl
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - curl -L https://github.com/genuinetools/reg/releases/download/v0.13.0/reg-linux-amd64 > /bin/reg
+  script:
+    - curl -u "$CI_REGISTRY_USER:$CI_REGISTRY_PASSWORD" "https://registry-gitlab.profintel.ru/jwt/auth?account=$CI_REGISTRY_USER&scope=repository:$CI_REGISTRY_IMAGE:delete&service=container_registry"
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME"
+  only:
+    - main
+
+release:
+  stage: release
+  image: docker:18.09
+  services:
+    - docker:18.09-dind
+  script:
+    - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token --password-stdin registry-gitlab.profintel.ru
+    - docker pull $CONTAINER_TEST_IMAGE
+    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+    - docker push $CONTAINER_RELEASE_IMAGE
+  only:
+    - main
+
+deploy_rc:
+  stage: deploy
+  image: kroniak/ssh-client
+  script:
+    - echo $CI_PROJECT_PATH
+    - mkdir -p ~/.ssh && chmod 700 ~/.ssh
+    - echo $RC_KEY | base64 -d > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+    - cat ~/.ssh/id_rsa
+    - scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r ./deploy/docker-compose.yml  $RC_USER@${RC_HOST}:~/docker-compose_$CONTAINER_NAME_RC.yml
+    - scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r ./deploy/deploy.sh  $RC_USER@${RC_HOST}:~/deploy_$CONTAINER_NAME_RC.sh
+    - ssh -t -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $RC_USER@$RC_HOST "CI_REGISTRY_USER=${CI_REGISTRY_USER} CI_REGISTRY_PASSWORD=${CI_REGISTRY_PASSWORD} CI_REGISTRY=${CI_REGISTRY} CONTAINER_NAME=${CONTAINER_NAME_RC} SERVICE_NAME=${CONTAINER_NAME_RC} sh deploy_$CONTAINER_NAME_RC.sh"
+  only:
+    - main
+  except:
+    - web
+
+deploy_prod:
+  stage: deploy
+  image: kroniak/ssh-client
+  script:
+    - echo $CI_PROJECT_PATH
+    - mkdir -p ~/.ssh && chmod 700 ~/.ssh
+    - echo $PROD_KEY | base64 -d > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+    - cat ~/.ssh/id_rsa
+    - scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r ./deploy/docker-compose.yml  $PROD_USER@${PROD_HOST}:~/docker-compose_$CONTAINER_NAME_PROD.yml
+    - scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r ./deploy/deploy.sh  $PROD_USER@${PROD_HOST}:~/deploy_$CONTAINER_NAME_PROD.sh
+    - ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $PROD_USER@$PROD_HOST "CI_REGISTRY_USER=${CI_REGISTRY_USER} CI_REGISTRY_PASSWORD=${CI_REGISTRY_PASSWORD} CI_REGISTRY=${CI_REGISTRY} CONTAINER_NAME=${CONTAINER_NAME_PROD} SERVICE_NAME=${CONTAINER_NAME_PROD} sh deploy_$CONTAINER_NAME_PROD.sh"
+  only:
+    - web

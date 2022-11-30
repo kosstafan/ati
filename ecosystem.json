@@ -1,0 +1,30 @@
+{
+  "apps": [
+    {
+      "name": "zk",
+      "script": "./node_modules/nuxt/bin/nuxt.js",
+      "args": "",
+      "error_file": "./logs/zk.err.log",
+      "out_file": "./logs/zk.out.log", 
+      "exec_mode": "fork_mode",
+      "merge_logs": true,
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    {
+      "name": "zkProd",
+      "script": "./node_modules/nuxt/bin/nuxt.js",
+      "args": "start",
+      "error_file": "./logs/zk.err.log",
+      "out_file": "./logs/zk.out.log", 
+      "exec_mode": "cluster",
+      "instances": "max",
+      "merge_logs": true,
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+
+  ]
+}
