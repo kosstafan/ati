@@ -6,7 +6,7 @@
                     <Logo />
                 </a>
                 <div class="header__nav">
-                    <div class="header__contacts">
+                    <div class="header__contacts header__contacts_top">
                         <a href="tel:+9320122065" class="contact-link"><IconPhone class="contact-link__icon"/>8 932 012 20 65</a>
                         <a href="mailto:avtotrakinfo74@yandex.ru" class="contact-link"><IconMail class="contact-link__icon"/>avtotrakinfo74@yandex.ru</a>
                     </div>

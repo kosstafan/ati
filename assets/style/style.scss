@@ -81,12 +81,19 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @include md {
+      justify-content: start;
+    }
   }
   &__contacts {
     display: flex;
     justify-content: flex-end;
-    @include md {
-      display: none;
+    &_top {
+      @include md {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
     }
   }
   &__links {
