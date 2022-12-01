@@ -291,6 +291,7 @@ a {
     justify-content: center;
     &__item {
       width: 33.33%;
+      max-height: 278px;
       position: relative;
       @include md {
         width: 100%;

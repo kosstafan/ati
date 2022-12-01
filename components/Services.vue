@@ -46,7 +46,7 @@ export default {
             },
             {
                 image: "escort",
-                name: "сщпровождение<br/>грузов"
+                name: "сопровождение<br/>грузов"
             },
             {
                 image: "order",
