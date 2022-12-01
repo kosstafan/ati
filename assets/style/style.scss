@@ -31,6 +31,7 @@ a {
 
 .section {
   height: 100vh;
+  min-height: 900px;
   &_flex {
     display: flex;
     flex-direction: column;
