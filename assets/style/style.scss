@@ -387,6 +387,9 @@ a {
     @include xl {
       margin: 0 auto;
     }
+    @include xs {
+      font-size: 25px;
+    }
   }
   & .button {
     margin-left: 15px;
