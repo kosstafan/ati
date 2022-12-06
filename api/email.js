@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer')
 
 export default async function (req, res, next) {
+  console.log(process.env)
 
 let body = [];
 req.on('data', (chunk) => {
@@ -16,13 +17,13 @@ req.on('data', (chunk) => {
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-      user: 'kostafan_roc@list.ru', // generated ethereal user
-      pass: 'DgccqQvZqhxcDeQ5ekeC', // generated ethereal password
+      user: process.env.EMAIL_USER, // generated ethereal user
+      pass: process.env.EMAIL_PASS, // generated ethereal password
     },
   });
   
   let result = await transporter.sendMail({
-    from: '"Administrator" <kostafan_roc@list.ru>',
+    from: `"Administrator" <${process.env.EMAIL_USER}>`,
     to: 'kostafan_roc@list.ru',
     subject: 'Заявка с сайта',
     text: 'Входящая заявка',
