@@ -59,6 +59,7 @@ a {
   &__img {
     @include xs {
       width: 98%;
+      margin-top: -30px;
     }
   }
   &__bg {
