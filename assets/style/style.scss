@@ -15,7 +15,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  &.closed {
+  &.closed_ {
     height: 100%;
     overflow: hidden;
   }
@@ -52,6 +52,11 @@ a {
   position: relative;
   display: flex;
   flex-direction: column;
+  &__img {
+    @include xs {
+      width: 98%;
+    }
+  }
   &__bg {
     position: absolute;
     right: 0;
@@ -67,6 +72,23 @@ a {
     font-weight: 600;
     color: #395287;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.45);
+    @include xs {
+      display: none;
+    }
+    &_xs {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 600;
+      color: #395287;
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.45);
+      display: none;
+      @include xs {
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        margin-top: auto;
+      }
+    }
   }
   &__content {
     flex: 1;
@@ -171,6 +193,10 @@ a {
   &-content {
     display: flex;
     align-items: center;
+    @include xs {
+      flex-direction: column;
+      margin-top: 5px;
+    }
   }
 }
 
@@ -340,12 +366,20 @@ a {
     @include xxl {
       justify-content: space-between;
     }
+    &__play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
     &__item {
+      position: relative;
       width: 305px;
       height: 208px;
       margin-right: 20px;
       margin-bottom: 12px;
       background: #E5EDF6;
+      cursor: pointer;
       &:nth-child(4n+4) {
         margin-right: 0;
       }
@@ -480,4 +514,135 @@ a {
   @include md {
     display: block;
   }
+}
+
+.nav-mobile {
+  background-color: rgb(90%, 93%, 96%, .9);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__link {
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    color: #2E4580;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+}
+
+.modal, .form {
+  & .form__button {
+    align-items: center;
+  }
+  background-color: rgb(90%, 93%, 96%, .9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  &__title {
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    color: #2E4580;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 55px;
+    text-align: center;
+  }
+  &__text {
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #2E4580;
+    margin-bottom: 35px;
+    text-align: center;
+    width: 70%;
+    max-width: 700px;
+    @include md {
+      width: 80%;
+    }
+    @include xs {
+      width: 90%;
+    }
+  }
+  &__row {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  &__label, & .form__button {
+    flex: 1;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    &:last-child {
+      margin-right: 0;
+    }
+    & div {
+      text-transform: uppercase;
+      font-family: sans-serif;
+      font-size: 14px;
+      color: #2E4580;
+      margin-bottom: 10px;
+    }
+    & input, & textarea {
+      background-color: rgb(90%, 93%, 96%, .5);
+      border-radius: 20px;
+      border: 1px solid #2E4580;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      padding: 5px 15px;
+      resize: none;
+      width: 100%;
+      &:focus {
+        background-color: #ffffff;
+      }
+      &.error {
+        border-color: red;
+      }
+      @include xs {
+        width: 98%;
+      }
+    }
+    &_reset {
+      background-color: rgba(46, 69, 128, .5);;
+    }
+  }
+  &__input {
+    flex: 1;
+  }
+  &__element {
+    width: 98%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  &__img {
+    width: 70%;
+    margin-bottom: 10px;
+    margin-top: -20px;
+    max-width: 700px;
+    @include md {
+      width: 80%;
+    }
+    @include xs {
+      width: 90%;
+    }
+  }
+}
+
+.plyr {
+  height: 50% !important;
+  margin-bottom: 10px;
 }

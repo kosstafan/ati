@@ -5,7 +5,7 @@
                 <div class="about__content">
                 <div class="about__action">
                     <img src="@/assets/images/about.png" alt="" class="about__logo">
-                    <button class="button">задать вопрос</button>
+                    <button class="button" @click="$emit('openForm')">задать вопрос</button>
                 </div>
                 <div class="about__text">
                     <div v-for="(line, index) in lines" :key="index" class="about__text-line">

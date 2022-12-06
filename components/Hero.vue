@@ -22,7 +22,7 @@
                                 <li v-for="item in feachers" :key="item" class="feachers__item">{{item}}</li>
                             </ul>
                             </div>
-                            <img src="@/assets/images/daf.png" alt="" srcset="">
+                            <img src="@/assets/images/daf.png" alt="" class="hero__img">
                         </div>
                         
                     </div>
@@ -36,7 +36,7 @@
 export default {
     name: "Hero",
     data: () => ({
-        feachers: ['по всей России','Белоруссия','Грузия','Казахстан','Китай','Таджикистан','Узбекистан']
+        feachers: ['по всей России','Белоруссия','Грузия','Казахстан','Китай','Таджикистан','Узбекистан'],
     }),
     methods: {
     scrollToBottom() {

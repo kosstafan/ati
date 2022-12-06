@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="container">
-            <button class="button button_big">заказать грузоперевозку</button>
+            <button class="button button_big" @click="$emit('openForm')">заказать грузоперевозку</button>
         </div>
     </div>
 </template>

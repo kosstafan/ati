@@ -45,13 +45,17 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["~/assets/style/core.scss"],
 
-  plugins: ["~/plugins/requestApi.js", "~/plugins/directives.js", { src: '~/plugins/ymapPlugin.js',  mode: 'client'}],
+  plugins: ["~/plugins/requestApi.js", "~/plugins/directives.js", { src: '~/plugins/ymapPlugin.js',  mode: 'client'}, { src: '~/plugins/vue-plyr', mode: 'client' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [],
+
+  serverMiddleware: [
+    { path: '/email', handler: '~/api/email.js' }
+    ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -90,15 +94,14 @@ export default {
       Accept: "application/json",
       "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
     },
-    prefix: "promo",
   },
 
-  proxy: {
+  /* proxy: {
     "/promo/": {
       target: "https://www.profintel.ru",
       pathRewrite: { "^/promo": "/api" },
     },
-  },
+  }, */
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

@@ -1,13 +1,15 @@
 <template>
   <div class="wrapper">
     <Hero />
-    <About />
-    <Services />
-    <Price />
+    <About @openForm="openForm" />
+    <Services @openForm="openForm" />
+    <Price @openForm="openForm" />
     <section class="section section_flex">
-      <Promo />
+      <Promo @openForm="openForm" />
       <Footer />
     </section>
+    <Form v-if="isFormOpened" @closeForm="isFormOpened = false" @sended="isFormOpened = false,successModal = true" />
+    <Modal v-if="successModal" :title="result" @closeModal="successModal = false" />
   </div>
 </template>
 
@@ -16,24 +18,16 @@ export default {
   name: "index",
   data: () => {
     return {
-      showModal: false,
-      modalTitle: "title",
-      modalText: "text",
+      isFormOpened: false,
+      result: "Заявка успешно отправлена",
+      successModal: false,
     };
   },
   methods: {
-    closeModal(e) {
-      this.modalTitle = "";
-      this.modalText = "";
-      document.body.classList.remove("closed");
-      this.showModal = false;
-    },
-    processResult(e) {
-      this.modalTitle = e.title;
-      this.modalText = e.text;
-      document.body.classList.add("closed");
-      this.showModal = true;
-    },
+    openForm() {
+      console.log('openForm')
+      this.isFormOpened = true
+    }
   },
 };
 </script>

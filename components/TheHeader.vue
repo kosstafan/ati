@@ -1,5 +1,6 @@
 <template>
     <header class="header">
+        <Nav v-if="isNavOpened" @closeNav="closeNav" @goToLink="goToLink($event)" />
         <div class="container">
             <div class="header__content">
                 <a href="#">
@@ -11,10 +12,11 @@
                         <a href="mailto:avtotrakinfo74@yandex.ru" class="contact-link"><IconMail class="contact-link__icon"/>avtotrakinfo74@yandex.ru</a>
                     </div>
                     <div class="header__links">
-                        <a v-for="link in links" :key="link.name" :href="link.to" class="nav-link">{{link.name}}</a>
-                        <div class="burger"><IconBurger /></div>
+                        <a v-for="link in links" :key="link.name" :href="link.to" class="nav-link" @click.prevent="goToLink(link.to)">{{link.name}}</a>
+                        <div class="burger" @click="openNav"><IconBurger /></div>
                         
                     </div> 
+                    <div class="hero__title_xs">ООО “АвтоТракИнфо”</div>
                 </div>
             </div>
             
@@ -28,25 +30,45 @@ export default {
         links: [
             {
                 name: "главная",
-                to: "#"
+                to: "hero"
             },
             {
                 name: "о нас",
-                to: "#"
+                to: "about"
             },
             {
                 name: "цены",
-                to: "#"
+                to: "servicess"
             },
             {
                 name: "наша работа",
-                to: "#"
+                to: "price"
             },
             {
                 name: "контакты",
-                to: "#"
+                to: "promo"
             }
-        ]
-    })
+        ],
+        isNavOpened: false
+    }),
+    methods: {
+        openNav() {
+            console.log('open')
+            this.isNavOpened = true,
+            document.body.classList.add('closed_')
+        },
+        closeNav() {
+            console.log('close')
+            this.isNavOpened = false
+            document.body.classList.remove('closed_')
+        },
+        goToLink(e, dist) {
+            console.log(document.querySelector(`.${e}`).offsetTop)
+            window.scrollTo({
+            top: document.querySelector(`.${e}`).offsetTop,
+            behavior: "smooth",
+        });
+        }
+    }
 }
 </script>
