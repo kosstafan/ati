@@ -59,7 +59,7 @@ a {
   &__img {
     @include xs {
       width: 98%;
-      margin-top: -30px;
+      margin-top: -10px;
     }
   }
   &__bg {
@@ -69,6 +69,10 @@ a {
     z-index: -1;
     @include md {
       right: inherit;
+    }
+    @include xs {
+      left: -230px;
+      top: -170px;
     }
   }
   &__title {
@@ -216,6 +220,7 @@ a {
   &-list {
     @include xs {
       margin-top: 5px;
+      color: #ffffff;
     }
   }
 }
