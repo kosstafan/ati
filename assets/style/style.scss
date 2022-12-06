@@ -101,6 +101,9 @@ a {
 
 .header {
   padding-top: 3.5625rem;
+  @include xs {
+    padding-top: 1rem;
+  }
   &__content {
     display: flex;
   }
