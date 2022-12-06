@@ -38,7 +38,7 @@ export default {
             },
             {
                 name: "цены",
-                to: "servicess"
+                to: "services"
             },
             {
                 name: "наша работа",
