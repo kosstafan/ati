@@ -52,6 +52,8 @@ a {
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  min-height: 100vh;
   &__img {
     @include xs {
       width: 98%;
@@ -205,6 +207,11 @@ a {
   color: #112047;
   font-size: 2.5rem;
   white-space: nowrap;
+  &-list {
+    @include xs {
+      margin-top: 5px;
+    }
+  }
 }
 
 .scroll-btn {
