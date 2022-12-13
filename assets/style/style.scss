@@ -43,9 +43,12 @@ a {
 }
 
 .container {
-  max-width: 80rem;
+  max-width: 95rem;
   width: 98%;
   margin: 0 auto;
+  @include xxl {
+    max-width: 80rem;
+  }
   &_hero {
     height: 100%;
     display: flex;
@@ -69,6 +72,8 @@ a {
     min-height: initial;
   }
   &__img {
+    flex: 1;
+    max-width: 1050px;
     @include xs {
       width: 98%;
       margin-top: -10px;
