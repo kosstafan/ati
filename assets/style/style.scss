@@ -32,7 +32,7 @@ a {
 
 .section {
   height: 100vh;
-  min-height: 950px;
+  min-height: 980px;
   &_flex {
     display: flex;
     flex-direction: column;
@@ -54,8 +54,11 @@ a {
   display: flex;
   flex-direction: column;
   height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
-  min-height: initial;
+  @include md {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    min-height: initial;
+  }
   &__img {
     @include xs {
       width: 98%;
