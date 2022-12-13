@@ -24,9 +24,9 @@ export default {
     data: () => ({
         items: [
             {
-                name: 'Очень сложная погрузка',
+                name: '',
                 image: '1.jpg',
-                description: 'some description'
+                description: ''
             },
             {
                 image: '2.jpg',
@@ -35,30 +35,30 @@ export default {
             },
             {
                 image: '3.jpg',
-                description: 'some description',
+                description: '',
                 
             },
             {
                 image: '4.jpg',
-                description: 'some description',
+                description: '',
                 video: 'video-02.mp4'
             },
             {
                 image: '5.jpg',
-                description: 'some description',
+                description: '',
                 video: 'video-03.mp4'
             },
             {
                 image: '6.jpg',
-                description: 'some description'
+                description: ''
             },
             {
                 image: '7.jpg',
-                description: 'some description'
+                description: ''
             },
             {
                 image: '8.jpg',
-                description: 'some description'
+                description: ''
             },
         ],
         isModalOpened: false,
