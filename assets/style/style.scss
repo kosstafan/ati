@@ -559,7 +559,7 @@ a {
   & .form__button {
     align-items: center;
   }
-  background-color: rgb(90%, 93%, 96%, .9);
+  background-color: rgb(90%, 93%, 96%, 1);
   position: fixed;
   top: 0;
   left: 0;
@@ -576,7 +576,7 @@ a {
     color: #2E4580;
     font-size: 28px;
     font-weight: 600;
-    margin-bottom: 55px;
+    margin-bottom: 25px;
     text-align: center;
   }
   &__text {
@@ -590,6 +590,7 @@ a {
     max-width: 700px;
     @include md {
       width: 80%;
+      text-align: left;
     }
     @include xs {
       width: 90%;

@@ -21,7 +21,7 @@
     />
   </video>
 </vue-plyr>
-        <div v-if="!!text" class="modal__text">{{text}}</div>
+        <div v-if="!!text" class="modal__text" v-html="text"></div>
         <button v-if="needButton" class="button" @click="$emit('openForm')">заказать</button>
     </div>
 </template>
