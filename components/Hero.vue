@@ -11,7 +11,7 @@
         </svg>
         <TheHeader @openForm="$emit('openForm')" />
         <div class="hero__content">
-            <div class="container">
+            <div class="container container_hero">
                 <div class="hero__title">ООО “АвтоТракИнфо”</div>
                 <main class="hero__main">
                     <div class="main-text">
