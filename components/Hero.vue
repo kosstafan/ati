@@ -9,7 +9,7 @@
             </linearGradient>
             </defs>
         </svg>
-        <TheHeader />
+        <TheHeader @openForm="$emit('openForm')" />
         <div class="hero__content">
             <div class="container">
                 <div class="hero__title">ООО “АвтоТракИнфо”</div>

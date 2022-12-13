@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Hero />
+    <Hero @openForm="openForm" />
     <About @openForm="openForm" />
     <Services @openForm="openForm" />
     <Price @openForm="openForm" />

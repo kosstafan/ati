@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <Nav v-if="isNavOpened" @closeNav="closeNav" @goToLink="goToLink($event)" />
+        <Nav v-if="isNavOpened" @closeNav="closeNav" @goToLink="goToLink($event)" @openForm="$emit('openForm')" />
         <div class="container">
             <div class="header__content">
                 <a href="#">
