@@ -1,13 +1,8 @@
 export default {
-  loadingIndicator: {
-    name: "three-bounce",
-    color: "#FFFFFF",
-    background: "#193c81",
-  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Самые популярные ТВ-пакеты "Amedia" и "Настрой Кино" в подарок',
+    title: 'Оранизация перевозок по России и странам СНГ',
     htmlAttrs: {
       lang: "ru",
     },
@@ -19,27 +14,15 @@ export default {
         hid: "description",
         name: "description",
         content:
-          " Подключи Интернет + Интерактивное ТВ и получи ТВ-пакеты с самыми популярными киноканалами бесплатно.",
+          "Заказать перевозку грузов по России и странам ближнего зарубежья .",
       },
     ],
 
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
 
-    script: [
-      {
-        innerHTML:
-          '!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?169",t.onload=function(){VK.Retargeting.Init("VK-RTRG-987224-fLC6"),VK.Retargeting.Hit()},document.head.appendChild(t)}();',
-      },
-    ],
     // свойство, чтобы не экранировались символы в разделе script
     __dangerouslyDisableSanitizers: ["script"],
 
-    noscript: [
-      {
-        innerHTML:
-          '<img src="https://vk.com/rtrg?p=VK-RTRG-987224-fLC6" style="position:fixed; left:-999px;" alt=""/>',
-      },
-    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -59,33 +42,8 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    [
-      "@nuxtjs/recaptcha",
-      {
-        hideBadge: true,
-        siteKey: "6LdMMZ4UAAAAAKM6MjMpVL85P2ruvKyZbNj1wFYG",
-        version: 3,
-      },
-    ],
-    [
-      "@nuxtjs/google-gtag",
-      {
-        id: "AW-380164878",
-        debug: true,
-      },
-    ],
-    "@nuxtjs/yandex-metrika",
     "@nuxtjs/axios",
   ],
-
-  yandexMetrika: {
-    id: "91377253",
-    webvisor: true,
-    clickmap: true,
-    // useCDN: false,
-    trackLinks: true,
-    accurateTrackBounce: true,
-  },
 
   axios: {
     proxy: true,
@@ -105,10 +63,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-
-  env: {
-    API_URL: "https://www.profintel.ru/",
-  },
 
   server: {
     host: process.env.HOST,
