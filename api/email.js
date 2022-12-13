@@ -13,7 +13,7 @@ req.on('data', (chunk) => {
   
   // let testAccount = await nodemailer.createTestAccount()
   let transporter = nodemailer.createTransport({
-    host: "smtp.mail.ru",
+    host: "smtp.beget.com",
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
