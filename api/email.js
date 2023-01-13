@@ -24,7 +24,7 @@ req.on('data', (chunk) => {
   
   let result = await transporter.sendMail({
     from: `"Administrator" <${process.env.EMAIL_USER}>`,
-    to: 'kostafan_roc@list.ru',
+    to: 'admin@auto-truck-info.ru',
     subject: 'Заявка с сайта',
     text: 'Входящая заявка',
     html:
