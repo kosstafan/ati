@@ -30,7 +30,7 @@ export default {
             },
             {
                 image: '2.jpg',
-                description: 'some description',
+                description: '',
                 video: 'video-01.mp4'
             },
             {
@@ -58,6 +58,34 @@ export default {
             },
             {
                 image: '8.jpg',
+                description: ''
+            },
+            {
+                image: '9.jpg',
+                description: ''
+            },
+            {
+                image: '10.jpg',
+                description: ''
+            },
+            {
+                image: '11.jpg',
+                description: ''
+            },
+            {
+                image: '12.jpg',
+                description: ''
+            },
+            {
+                image: '13.jpg',
+                description: ''
+            },
+            {
+                image: '14.jpg',
+                description: ''
+            },
+            {
+                image: '15.jpg',
                 description: ''
             },
         ],

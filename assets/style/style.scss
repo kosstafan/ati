@@ -389,6 +389,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  height: auto;
   &__description {
     text-align: center;
     font-family: sans-serif;
@@ -398,6 +399,7 @@ a {
   &-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     @include xxl {
       justify-content: space-between;
     }
