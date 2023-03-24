@@ -61,27 +61,7 @@ export default {
                 description: ''
             },
             {
-                image: '9.jpg',
-                description: ''
-            },
-            {
                 image: '10.jpg',
-                description: ''
-            },
-            {
-                image: '11.jpg',
-                description: ''
-            },
-            {
-                image: '12.jpg',
-                description: ''
-            },
-            {
-                image: '13.jpg',
-                description: ''
-            },
-            {
-                image: '14.jpg',
                 description: ''
             },
             {
