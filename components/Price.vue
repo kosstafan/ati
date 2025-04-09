@@ -68,6 +68,54 @@ export default {
                 image: '15.jpg',
                 description: ''
             },
+            {
+                image: '16.jpg',
+                description: ''
+            },
+            {
+                image: '17.jpg',
+                description: ''
+            },
+            {
+                image: '18.jpg',
+                description: ''
+            },
+            {
+                image: '19.jpg',
+                description: ''
+            },
+            {
+                image: '20.jpg',
+                description: ''
+            },
+            {
+                image: '21.jpg',
+                description: ''
+            },
+            {
+                image: '22.jpg',
+                description: ''
+            },
+            {
+                image: '23.jpg',
+                description: ''
+            },
+            {
+                image: '24.jpg',
+                description: ''
+            },
+            {
+                image: '25.jpg',
+                description: ''
+            },
+            {
+                image: '26.jpg',
+                description: ''
+            },
+            {
+                image: '27.jpg',
+                description: ''
+            },
         ],
         isModalOpened: false,
         modalTitle: '',

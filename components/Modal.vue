@@ -1,7 +1,7 @@
 <template>
     <div class="modal" @click.self="$emit('closeModal')">
         <div v-if="!!title" class="modal__title" v-html="title"></div>
-        <img v-if="!!image && !video.length" :src="require(`@/assets/images/${image}`)" alt="" class="modal__img">
+        <img v-if="!!image && !video.length" :src="require(`@/assets/images/${image}`)" alt="" class="modal__img" :class="{'vertical': vertical}">
         <vue-plyr>
   <video
     v-if="video.length"
@@ -48,6 +48,10 @@ export default {
         needButton: {
             type: Boolean,
             default: false
+        },
+        vertical: {
+          type: Boolean,
+          default: false
         }
     }
 }

@@ -4,6 +4,7 @@
     <About @openForm="openForm" />
     <Services @openForm="openForm" />
     <Price @openForm="openForm" />
+    <Rewiews @openForm="openForm" />
     <section class="section section_flex">
       <Promo @openForm="openForm" />
       <Footer />
